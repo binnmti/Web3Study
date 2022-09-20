@@ -28,8 +28,14 @@
                 FontSize="18"
                 HorizontalOptions="Center" />
 
+            <Entry
+                x:Name="ContractAddressEntry"
+                Text="0x2a46f2ffd99e19a89476e2f62270e0a35bbf0756"
+                HorizontalOptions="Center" />
+
+            <Image x:Name="IpfsImage" Aspect="AspectFit"  />
+
             <Button
-                x:Name="Web3Button"
                 Text="Web3"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnWeb3ButtonClicked"
@@ -41,6 +47,8 @@
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
+
+
 
         </VerticalStackLayout>
     </ScrollView>
