@@ -6,6 +6,7 @@ public class IpfsJson
     public string name { get; set; }
     public string type { get; set; }
     public string imageUrl { get; set; }
+    public string image { get; set; }
     public string description { get; set; }
     public Attribute[] attributes { get; set; }
     public Properties properties { get; set; }

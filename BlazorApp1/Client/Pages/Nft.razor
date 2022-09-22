@@ -15,8 +15,8 @@
         <div class="m-2">
             <div class="" id="">
                 <form class="form-inline" @onsubmit="OnSearch">
-                    <input class="form-control" size="50" type="text" value="@ContractAddress" placeholder="ContractAddress" bind="@ContractAddress" />
-                    <input class="form-control" size="50" type="text" value="@TokenId" placeholder="TokenId" bind="@TokenId" />
+                    <input class="form-control" size="50" type="text" placeholder="ContractAddress" @bind="ContractAddress" />
+                    <input class="form-control" size="50" type="text" placeholder="TokenId" @bind="TokenId" />
                     <div class="input-group-prepend px-1">
                         <button type="submit" id="navbar-search-button" class="oi oi-magnifying-glass btn input-group-text" style="top:0px;">検索</button>
                     </div>

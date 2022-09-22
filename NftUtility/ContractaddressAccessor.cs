@@ -20,6 +20,14 @@ public static class ContractaddressAccessor
 
         var json = await response.Content.ReadAsStringAsync();
         var result = JsonSerializer.Deserialize<IpfsJson>(json) ?? new IpfsJson();
-        return new Uri(result.imageUrl);
+        if (result.imageUrl != null)
+        {
+            return new Uri(result.imageUrl);
+        }
+        else if (result.image != null)
+        {
+            return new Uri(result.image);
+        }
+        return new Uri("");
     }
 }
