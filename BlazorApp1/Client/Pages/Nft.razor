@@ -1,0 +1,49 @@
+﻿@page "/nft"
+@using BlazorApp1.Shared
+@inject HttpClient Http
+
+<PageTitle>Weather forecast</PageTitle>
+
+<h1>NFT</h1>
+
+<div class="row">
+    <div class="col-2">
+        <div class="m-2">
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="m-2">
+            <div class="" id="">
+                <form class="form-inline" @onsubmit="OnSearch">
+                    <input class="form-control" size="50" type="text" value="@ContractAddress" placeholder="ContractAddress" bind="@ContractAddress" />
+                    <input class="form-control" size="50" type="text" value="@TokenId" placeholder="TokenId" bind="@TokenId" />
+                    <div class="input-group-prepend px-1">
+                        <button type="submit" id="navbar-search-button" class="oi oi-magnifying-glass btn input-group-text" style="top:0px;">検索</button>
+                    </div>
+                </form>
+            </div>
+            <img src="@ImageUrl" alt='' title="@ImageUrl" />
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="m-2">
+        </div>
+    </div>
+</div>
+
+@code {
+
+    private string ContractAddress { get; set; } = "0x2a46f2ffd99e19a89476e2f62270e0a35bbf0756";
+    private string TokenId { get; set; } = "40913";
+    private string ImageUrl { get; set; } = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+    }
+
+    private async Task OnSearch()
+    {
+        var nftImage = await Http.GetFromJsonAsync<NftImage>($"NftImage?contractAddress={ContractAddress}&tokenId={TokenId}") ?? default;
+        ImageUrl = nftImage.ImageUrl;
+    }
+}

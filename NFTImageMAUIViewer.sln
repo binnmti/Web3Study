@@ -5,7 +5,13 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NFTImageMAUIViewer", "NFTImageMAUIViewer\NFTImageMAUIViewer.csproj", "{DFD0CAF0-4C85-41F9-88EB-AC8773E564A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NftUtility", "NftUtility\NftUtility.csproj", "{B2B2085A-B799-4DC9-A226-AE6B5D09B2B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NftUtility", "NftUtility\NftUtility.csproj", "{B2B2085A-B799-4DC9-A226-AE6B5D09B2B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp1.Server", "BlazorApp1\Server\BlazorApp1.Server.csproj", "{D612A927-0AC5-46DE-B62D-EDFAAD1ED005}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp1.Client", "BlazorApp1\Client\BlazorApp1.Client.csproj", "{10F8FBCB-7857-4F46-8AEC-1063BD917818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp1.Shared", "BlazorApp1\Shared\BlazorApp1.Shared.csproj", "{A16F6B67-5CE2-4D5A-9CBA-8F9AE995C1D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +29,18 @@ Global
 		{B2B2085A-B799-4DC9-A226-AE6B5D09B2B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2B2085A-B799-4DC9-A226-AE6B5D09B2B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2B2085A-B799-4DC9-A226-AE6B5D09B2B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D612A927-0AC5-46DE-B62D-EDFAAD1ED005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D612A927-0AC5-46DE-B62D-EDFAAD1ED005}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D612A927-0AC5-46DE-B62D-EDFAAD1ED005}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D612A927-0AC5-46DE-B62D-EDFAAD1ED005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10F8FBCB-7857-4F46-8AEC-1063BD917818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10F8FBCB-7857-4F46-8AEC-1063BD917818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10F8FBCB-7857-4F46-8AEC-1063BD917818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10F8FBCB-7857-4F46-8AEC-1063BD917818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A16F6B67-5CE2-4D5A-9CBA-8F9AE995C1D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A16F6B67-5CE2-4D5A-9CBA-8F9AE995C1D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A16F6B67-5CE2-4D5A-9CBA-8F9AE995C1D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A16F6B67-5CE2-4D5A-9CBA-8F9AE995C1D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
