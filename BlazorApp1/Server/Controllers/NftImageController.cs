@@ -22,7 +22,7 @@ public class NftImageController : ControllerBase
     {
         var infuraApiKey = _config["Settings:InfuraApiKey"];
         var client = _clientFactory.CreateClient();
-        var uri = await contractAddress.ToImageUrlAsync(tokenId, infuraApiKey, client);
-        return new NftImage() { ImageUrl = uri.AbsoluteUri };
+        var imageUrl = await contractAddress.ToImageUrlAsync(tokenId, infuraApiKey, client);
+        return new NftImage() { ImageUrl = imageUrl };
     }
 }

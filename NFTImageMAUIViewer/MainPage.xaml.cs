@@ -35,8 +35,7 @@ namespace NFTImageMAUIViewer
         private async Task SetImageAsync()
         {
             var url = await ContractAddressEntry.Text.ToImageUrlAsync(40913, InfuraApiKey, client);
-
-            using var imageResponse = await client.GetAsync(url.AbsoluteUri);
+            using var imageResponse = await client.GetAsync(url);
             if (!imageResponse.IsSuccessStatusCode) return;
 
             //画像を保存
