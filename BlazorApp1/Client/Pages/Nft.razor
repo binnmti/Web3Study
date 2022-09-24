@@ -15,14 +15,44 @@
         <div class="m-2">
             <div class="" id="">
                 <form class="form-inline" @onsubmit="OnSearch">
-                    <input class="form-control" size="50" type="text" placeholder="ContractAddress" @bind="ContractAddress" />
-                    <input class="form-control" size="50" type="text" placeholder="TokenId" @bind="TokenId" />
-                    <div class="input-group-prepend px-1">
-                        <button type="submit" id="navbar-search-button" class="oi oi-magnifying-glass btn input-group-text" style="top:0px;">検索</button>
+                    <div>
+                        contractaddress:
+                        <input class="form-control" size="50" type="text" placeholder="ContractAddress" @bind="ContractAddress" />
+                    </div>
+                    <div>
+                        tokenId:
+                        <input class="form-control" size="50" type="text" placeholder="TokenId" @bind="TokenId" />
+                    </div>
+                    <div>
+                        @if (NowSearching)
+                        {
+                            <button disabled type="submit" class="btn btn-outline-primary">検索</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-outline-primary">検索</button>
+                        }
                     </div>
                 </form>
             </div>
-            <img src="@ImageUrl" alt='' title="@ImageUrl" />
+            @if (NowSearching)
+            {
+                <div>検索中...</div>
+            }
+            else
+            {
+                if (ImageUrl == "")
+                {
+                    if (SearchClicked)
+                    {
+                        <div>検索に失敗しました</div>
+                    }
+                }
+                else
+                {
+                    <img src="@ImageUrl" alt='' title="@ImageUrl" />
+                }
+            }
         </div>
     </div>
     <div class="col-2">
@@ -36,6 +66,8 @@
     private string ContractAddress { get; set; } = "0x2a46f2ffd99e19a89476e2f62270e0a35bbf0756";
     private string TokenId { get; set; } = "40913";
     private string ImageUrl { get; set; } = "";
+    private bool NowSearching { get; set; }
+    private bool SearchClicked { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -43,7 +75,13 @@
 
     private async Task OnSearch()
     {
+        NowSearching = true;
+        SearchClicked = true;
+
+        ImageUrl = "";
         var nftImage = await Http.GetFromJsonAsync<NftImage>($"NftImage?contractAddress={ContractAddress}&tokenId={TokenId}") ?? default;
         ImageUrl = nftImage.ImageUrl;
+
+        NowSearching = false;
     }
 }

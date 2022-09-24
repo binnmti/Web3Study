@@ -15,10 +15,17 @@ public static class ContractaddressAccessor
         {
             var web3 = new Web3($"https://mainnet.infura.io/v3/{infuraApiKey}");
             var contract = web3.Eth.GetContract(Abi, contractaddress);
-            var tokenUri = await contract.GetFunction("tokenURI").CallAsync<string>(tokenId);
+            var tokenFunction = contract.GetFunction("tokenURI");
+
+            //Nethereum.JsonRpc.Client.RpcResponseException invalid argument 0: json: cannot unmarshal hex string of odd length into Go struct field TransactionArgs.to of type common.Address: eth_call'
+            var tokenUri = await tokenFunction.CallAsync<string>(tokenId);
             var ipfsUrl = tokenUri.Replace("ipfs://ipfs", "https://ipfs.io/ipfs");
             var response = await httpClient.GetAsync(ipfsUrl);
-            if (!response.IsSuccessStatusCode) return "";
+            if (!response.IsSuccessStatusCode)
+            {
+                //Gateway Time-outが多い
+                return "";
+            }
 
             var json = await response.Content.ReadAsStringAsync();
             var result = JsonSerializer.Deserialize<IpfsJson>(json) ?? new IpfsJson();
@@ -31,9 +38,8 @@ public static class ContractaddressAccessor
                 return result.image;
             }
         }
-        catch(Exception ex)
+        catch(Exception)
         {
-            Console.WriteLine(ex.Message);
 #if DEBUG
             Debugger.Break();
 #endif
